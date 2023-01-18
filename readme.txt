@@ -1,11 +1,12 @@
 === Basic Auth for WP-Admin ===
 
-Contributors: Walid SADFI
+Contributors: Walid SADFI, Evolurise
 Tags: security, basic auth, wp-admin, wp-login
 Requires at least: 3.0
-Tested up to: 5.7
+Tested up to: 6.1
 Stable tag: 1.0
 License: GPL2
+Requires PHP: 5.6.20
 
 Add an additional layer of security with this super light plugin that adds a basic authentication HTTP to the wp-admin and wp-login pages.
 
