@@ -3,7 +3,7 @@
 Plugin Name: Basic Auth for WP-Admin
 Plugin URI: https://www.evolurise.com/
 Description: Add an additionnal layer of security with this super light plugin that adds a basic authentication HTTP to the wp-admin and wp-login pages.
-Version: 1.0.0
+Version: 1.0
 Author: Evolurise - Walid SADFI
 text-domain: evolurise-basic-auth-for-wpadmin
 License: GPL2
