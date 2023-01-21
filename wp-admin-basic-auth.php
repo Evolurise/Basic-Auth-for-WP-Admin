@@ -95,7 +95,7 @@ function basic_auth_for_wp_admin_options_page() {
         wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'basic-auth-for-wp-admin' ) );
     }
     ?>
-    <div class="wrap">
+    <div class="wrap_basic_auth">
         <img width="20%" src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '/img/evolurise_logo.png' ); ?>" alt="Evolurise logo">
         <h2><?php echo esc_html__( 'Welcome to the Basic Auth for WP-Admin settings page', 'basic-auth-for-wp-admin' ); ?></h2>
         <form action="options.php" method="post">
