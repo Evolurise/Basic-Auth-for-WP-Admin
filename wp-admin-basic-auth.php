@@ -5,7 +5,7 @@ Plugin URI: https://www.evolurise.com/
 Description: Add an additionnal layer of security with this super light plugin that adds a basic authentication HTTP to the wp-admin and wp-login pages.
 Version: 1.0
 Author: Evolurise - Walid SADFI
-text-domain: evolurise-basic-auth-for-wpadmin
+text-domain: basic-auth-for-wp-admin
 License: GPL2
 */
 
@@ -63,13 +63,13 @@ function basic_auth_for_wp_admin() {
 
 function basic_auth_for_wp_admin_options_init() {
     register_setting( 'basic_auth_for_wp_admin_options', 'basic_auth_for_wp_admin_options', 'basic_auth_for_wp_admin_options_validate' );
-    add_settings_section( 'basic_auth_for_wp_admin_section', esc_html__( 'Basic Auth for WP-Admin Settings', 'text-domain' ), 'basic_auth_for_wp_admin_section_callback', 'basic_auth_for_wp_admin' );
-    add_settings_field( 'basic_auth_for_wp_admin_username', esc_html__( 'Username', 'text-domain' ), 'basic_auth_for_wp_admin_username_callback', 'basic_auth_for_wp_admin', 'basic_auth_for_wp_admin_section' );
-    add_settings_field( 'basic_auth_for_wp_admin_password', esc_html__( 'Password', 'text-domain' ), 'basic_auth_for_wp_admin_password_callback', 'basic_auth_for_wp_admin', 'basic_auth_for_wp_admin_section' );
+    add_settings_section( 'basic_auth_for_wp_admin_section', esc_html__( 'Basic Auth for WP-Admin Settings', 'basic-auth-for-wp-admin' ), 'basic_auth_for_wp_admin_section_callback', 'basic_auth_for_wp_admin' );
+    add_settings_field( 'basic_auth_for_wp_admin_username', esc_html__( 'Username', 'basic-auth-for-wp-admin' ), 'basic_auth_for_wp_admin_username_callback', 'basic_auth_for_wp_admin', 'basic_auth_for_wp_admin_section' );
+    add_settings_field( 'basic_auth_for_wp_admin_password', esc_html__( 'Password', 'basic-auth-for-wp-admin' ), 'basic_auth_for_wp_admin_password_callback', 'basic_auth_for_wp_admin', 'basic_auth_for_wp_admin_section' );
 }
 
 function basic_auth_for_wp_admin_section_callback() {
-    echo '<p>' . esc_html__( 'Enter a username and password to use for basic authentication on the wp-admin and wp-login pages.', 'text-domain' ) . '</p>';
+    echo '<p>' . esc_html__( 'Enter a username and password to use for basic authentication on the wp-admin and wp-login pages.', 'basic-auth-for-wp-admin' ) . '</p>';
 }
 
 function basic_auth_for_wp_admin_username_callback() {
@@ -92,12 +92,12 @@ function basic_auth_for_wp_admin_options_validate( $input ) {
 }
 function basic_auth_for_wp_admin_options_page() {
     if ( ! current_user_can( 'manage_options' ) ) {
-        wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'text-domain' ) );
+        wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'basic-auth-for-wp-admin' ) );
     }
     ?>
     <div class="wrap">
         <img width="20%" src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '/img/evolurise_logo.png' ); ?>" alt="Evolurise logo">
-        <h2><?php echo esc_html__( 'Welcome to the Basic Auth for WP-Admin settings page', 'text-domain' ); ?></h2>
+        <h2><?php echo esc_html__( 'Welcome to the Basic Auth for WP-Admin settings page', 'basic-auth-for-wp-admin' ); ?></h2>
         <form action="options.php" method="post">
             <?php
             settings_fields( 'basic_auth_for_wp_admin_options' );
@@ -111,7 +111,7 @@ function basic_auth_for_wp_admin_options_page() {
 }
 
 function basic_auth_for_wp_admin_menu() {
-    add_options_page( esc_html__( 'Basic Auth for WP-Admin', 'text-domain' ), esc_html__( 'Basic Auth for WP-Admin', 'text-domain' ), 'manage_options', 'basic_auth_for_wp_admin', 'basic_auth_for_wp_admin_options_page' );
+    add_options_page( esc_html__( 'Basic Auth for WP-Admin', 'basic-auth-for-wp-admin' ), esc_html__( 'Basic Auth for WP-Admin', 'basic-auth-for-wp-admin' ), 'manage_options', 'basic_auth_for_wp_admin', 'basic_auth_for_wp_admin_options_page' );
 }
 
 add_action( 'admin_menu', 'basic_auth_for_wp_admin_menu' );
